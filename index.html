@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>xyit</title>
+      <meta charset="utf-8" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+      <meta http-equiv="Pragma" content="no-cache" />
+      <meta http-equiv="Expires" content="0" />
+      <link rel="stylesheet" href="xyit.css" />
+      <script src="/js/jquery.min.js"></script>
+      <script src="xyit.js"></script>
+   </head>
+   <body>
+      <div id="maincontainer">
+         <div id="head">xyit</div>
+         <canvas id="field" width="1920" height="1200">
+            If you can see this, you need a new browser..
+         </canvas>
+         <div id="controls">
+            <form>
+            <div id="inputs">
+               <div>
+                  <label id="xlabel" for="x">X Count</label>
+                  <input id="x" type="text" name="x" value="16" autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" enterkeyhint="go">
+               </div>
+               <div>
+                  <label id="ylabel" for="y">Y Count</label>
+                  <input id="y" type="text" name="y" value="16" autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" enterkeyhint="go">
+               </div>
+               <div>
+                  <label id="rlabel" for="r">Radius</label>
+                  <input id="r" type="text" name="r" value="15" autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" enterkeyhint="go">
+               </div>
+               <div>
+                  <label id="elabel" for="e">(x,y,i,t) => // <span id="d"></span></label>
+                  <input id="e" type="text" name="expr" value="sin(y*t*.1)+(x-y)/10" autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" enterkeyhint="go">
+               </div>
+               <div>
+                  <label id="dlabel" for="m">Draw type</label>
+                  <button type="button" id="m">Radius</button>
+               </div>
+               <div>
+                  <label id="slabel" for="save">&nbsp;</label>
+                  <button type="button" id="save">Save</button>
+               </div>
+               <input type="submit" style="display: none"/>
+            </div>
+            </form>
+            <div id="state-buttons">
+            </div>
+         </div>
+         <div id="info" class="red">-info-</div>
+         <div id="time" class="red">-time-</div>
+      </div>
+      <div id="docs">
+         <h2>xyit - use a formula to animate a grid of dots.</h2>
+         This canvas demo is a new implementation of <a href="https://tixy.land/">tixy.land</a> 
+         with several new features and better display control.
+         <div>
+            <h3>XCount</h3>
+            <p>The # of columns of dots. Use '*' to calculate a reasonable value</p>
+         </div>
+         <div>
+            <h3>YCount</h3>
+            <p>The # of rows of dots. Use '*' to calculate a reasonable value</p>
+         </div>
+         <div>
+            <h3>Radius</h3>
+            <p>The max radius of each dot. Use '*' to calculate a reasonable value</p>
+         </div>
+         <div>
+            <h3>Draw type</h3>
+            <p>The method used to draw a dot. It will toggle between 'Radius' and 'Color'</p>
+         </div>
+         <div>
+            <h3>Save</h3>
+            <p>Save current expr to the preset list</p>
+         </div>
+         <div>
+            <h3>Preset buttons</h3>
+            <p>Each button is a preset. click to use. right-click to delete</p>
+         </div>
+         <div>
+            <h3>(x,y,i,t) =&gt;</h3>
+            <p>This is the expression used to draw the dots. The expression will return a float
+            from 0 to 1 to determine the size. Positive is white, negative is red. Hit the enter key 
+            to generate a url.  The parameters to the function are:</p>
+            <p>x ...... The column of the dot</p>
+            <p>y ...... The row index of the dot</p>
+            <p>i ...... The overall index of the dot</p>
+            <p>t ...... The time in seconds. use this to animate</p>
+            Hit 'enter' in the input to create a url</p>
+         </div>
+      </div>
+   </body>
+</html>
